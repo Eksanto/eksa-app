@@ -41,6 +41,10 @@ def process():
             elif choice == 'Select Category':
                 results = pd.DataFrame()
                 num_of_results = len(results)
+                return render_template("index.html",results=results.iloc,num_of_results = num_of_results, original_text = rawtext)
+    else:
+        results = pd.DataFrame()
+        num_of_results = len(results)
 
     return render_template("index.html",results=results.iloc[:,1],num_of_results = num_of_results, original_text = rawtext)
 
@@ -100,6 +104,8 @@ def get_entities():
     df = pd.DataFrame(d, columns=['category', 'value'])
     
     return (df.to_json())
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
