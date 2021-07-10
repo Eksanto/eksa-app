@@ -4,3 +4,10 @@ Terdapat 4 (empat) pilihan case yang tersedia, dan saya memilih salah satu proye
 
 ![spaCy](https://user-images.githubusercontent.com/40589863/125156635-ae417e00-e190-11eb-9d7d-c8df9e45befd.png)
 image source : https://spacy.io/
+
+Checkpoints : 
+1. Instalasi : 1 poin
+2. Membuat dan menggunakan model entity recognition : 2 poin
+4. Membuat api untuk aplikasi entity recognition dengan tampilan web : 2 poin
+5. Membuat api untuk aplikasi entity recognition tanpa tampilan web : 9 poin
+6. Melakukan deployment aplikasi pada remote host : 2 poin
