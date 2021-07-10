@@ -42,9 +42,6 @@ def process():
                 results = pd.DataFrame()
                 num_of_results = "  <<--Please select a category-->>"
                 return render_template("index.html",results=results.iloc,num_of_results = num_of_results, original_text = rawtext)
-    else:
-        results = pd.DataFrame()
-        num_of_results = len(results)
 
     return render_template("index.html",results=results.iloc[:,1],num_of_results = num_of_results, original_text = rawtext)
 
