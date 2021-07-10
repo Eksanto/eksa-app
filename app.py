@@ -24,19 +24,19 @@ def process():
             doc = nlp(rawtext)
             # menyimpan hasil nlp ke df 
             d = [(ent.label_, ent.text) for ent in doc.ents]
-            df = pd.DataFrame(d, columns=['category', 'value'])
+            eksa = pd.DataFrame(d, columns=['category', 'value'])
 
             if choice == 'organization':
-                results = df[df['category'] == 'ORG']
+                results = eksa[eksa['category'] == 'ORG']
                 num_of_results = len(results)
             elif choice == 'person':
-                results = df[df['category'] == 'PERSON']
+                results = eksa[eksa['category'] == 'PERSON']
                 num_of_results = len(results)
             elif choice == 'geopolitical':
-                results = df[df['category'] == 'GPE']
+                results = eksa[eksa['category'] == 'GPE']
                 num_of_results = len(results)
             elif choice == 'money':
-                results = df[df['category'] == 'MONEY']
+                results = eksa[eksa['category'] == 'MONEY']
                 num_of_results = len(results)
             elif choice == 'Select Category':
                 results = pd.DataFrame()
@@ -78,9 +78,9 @@ def tes_send_json():
 @app.route('/tes_return_json', methods=['POST'])
 def tes_return_json():
     data = request.get_json() # proses membaca json yang dikirim 
-    df = pd.DataFrame([data]) # mengolah data menjadi dataframe
+    eksa = pd.DataFrame([data]) # mengolah data menjadi dataframe
 
-    return (df.to_json()) # mengembalikan dataframe dalam bentuk json
+    return (eksa.to_json()) # mengembalikan dataframe dalam bentuk json
 
 @app.route('/get_entities', methods=['POST'])
 def get_entities():
@@ -98,9 +98,9 @@ def get_entities():
     d = [(ent.label_, ent.text) for ent in doc.ents]
 
     # transform pasangan label menjadi dataframe 
-    df = pd.DataFrame(d, columns=['category', 'value'])
+    eksa = pd.DataFrame(d, columns=['category', 'value'])
     
-    return (df.to_json())
+    return (eksa.to_json())
 
     
 
