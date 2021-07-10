@@ -40,7 +40,7 @@ def process():
                 num_of_results = len(results)
             elif choice == 'Select Category':
                 results = pd.DataFrame()
-                num_of_results = len(results)
+                num_of_results = "  <<--Please select a category-->>"
                 return render_template("index.html",results=results.iloc,num_of_results = num_of_results, original_text = rawtext)
     else:
         results = pd.DataFrame()
