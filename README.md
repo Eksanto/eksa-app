@@ -4,7 +4,7 @@ Terdapat 4 (empat) pilihan case yang tersedia, dan saya memilih salah satu proye
 
 Produk akhir penerapan spaCy dalam aplikasi NER API dapat diakses di https://eksa-api.herokuapp.com/. Server herokuapp akan berubah menjadi mode 'sleep' karena idle beberapa saat, untuk mengaktifkannya cukup buka url **"eksa-api.herokuapp.com"** pada browser anda. NER yang diaplikasikan terbatas dalam bahasa Inggris, gunakan contoh teks berikut untuk mencoba pengenalan entitas.
 
-Teks untuk dicoba:
+Teks untuk dicoba:  
 *"Apple is looking at buying U.K. startup for $1 billion. 
 Mr. Maldonado flicked his turn signal and moved right and within seconds, his Ford Explorer pickup was hit by a Tesla Model 3 that was traveling about 60 miles per hour on Autopilot. 
 San Francisco considers banning sidewalk delivery robots. 
