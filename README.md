@@ -6,7 +6,7 @@ Produk akhir penerapan spaCy dalam aplikasi NER API dapat diakses di https://eks
 
 Teks untuk dicoba:  
 *"Apple is looking at buying U.K. startup for $1 billion. 
-Mr. Maldonado flicked his turn signal and moved right and within seconds, his Ford Explorer pickup was hit by a Tesla Model 3 that was traveling about 60 miles per hour on Autopilot. 
+Mr. Maldonado flicked his turn signal and moved right and within seconds, his Ford Explorer pickup was hit by a Tesla that was traveling about 60 miles per hour on Autopilot. 
 San Francisco considers banning sidewalk delivery robots. 
 London is a big city in the United Kingdom."*
 
