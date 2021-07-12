@@ -2,7 +2,7 @@ Setelah menyelesaikan semua modul dan graded assignment pada Data Analytics Spec
 
 Terdapat 4 (empat) pilihan case yang tersedia, dan saya memilih salah satu proyek yaitu bertemakan 'Named Entity Recognition (NER) - API Service'. Proyek ini mengacu pada https://github.com/iqbalbasyar/ner-flask yaitu cara menggunakan modul NER di spaCy untuk mengidentifikasi orang, organisasi, atau lokasi dalam teks, lalu menerapkan API Python dengan Flask. 
 
-Produk akhir penerapan spaCy dalam aplikasi NER API dapat diakses di https://eksa-api.herokuapp.com/. Server herokuapp akan berubah menjadi mode 'sleep' karena idle beberapa saat, untuk mengaktifkannya cukup buka url **"eksa-api.herokuapp.com"** pada browser anda. NER yang diaplikasikan terbatas dalam bahasa Inggris, gunakan contoh teks berikut untuk mencoba pengenalan entitas.
+Produk akhir penerapan spaCy dalam aplikasi NER API dapat diakses di https://eksa-api.herokuapp.com/. Server herokuapp akan berubah menjadi mode **'sleep'** karena idle beberapa saat, untuk mengaktifkannya cukup buka url **"eksa-api.herokuapp.com"** pada browser anda. NER yang diaplikasikan terbatas dalam bahasa Inggris, gunakan contoh teks berikut untuk mencoba pengenalan entitas.
 
 Teks untuk dicoba:  
 *"Apple is looking at buying U.K. startup for $1 billion. 
