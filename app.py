@@ -24,19 +24,19 @@ def process():
             doc = nlp(rawtext)
             # menyimpan hasil nlp ke df 
             d = [(ent.label_, ent.text) for ent in doc.ents]
-            eksa = pd.DataFrame(d, columns=['category', 'value'])
+            df = pd.DataFrame(d, columns=['category', 'value'])
 
             if choice == 'organization':
-                results = eksa[eksa['category'] == 'ORG']
+                results = df[df['category'] == 'ORG']
                 num_of_results = len(results)
             elif choice == 'person':
-                results = eksa[eksa['category'] == 'PERSON']
+                results = df[df['category'] == 'PERSON']
                 num_of_results = len(results)
             elif choice == 'geopolitical':
-                results = eksa[eksa['category'] == 'GPE']
+                results = df[df['category'] == 'GPE']
                 num_of_results = len(results)
             elif choice == 'money':
-                results = eksa[eksa['category'] == 'MONEY']
+                results = df[df['category'] == 'MONEY']
                 num_of_results = len(results)
             elif choice == 'Select Category':
                 results = pd.DataFrame()
@@ -78,9 +78,9 @@ def tes_send_json():
 @app.route('/tes_return_json', methods=['POST'])
 def tes_return_json():
     data = request.get_json() # proses membaca json yang dikirim 
-    eksa = pd.DataFrame([data]) # mengolah data menjadi dataframe
+    df = pd.DataFrame([data]) # mengolah data menjadi dataframe
 
-    return (eksa.to_json()) # mengembalikan dataframe dalam bentuk json
+    return (df.to_json()) # mengembalikan dataframe dalam bentuk json
 
 @app.route('/get_entities', methods=['POST'])
 def get_entities():
@@ -98,11 +98,47 @@ def get_entities():
     d = [(ent.label_, ent.text) for ent in doc.ents]
 
     # transform pasangan label menjadi dataframe 
-    eksa = pd.DataFrame(d, columns=['category', 'value'])
+    df = pd.DataFrame(d, columns=['category', 'value'])
     
-    return (eksa.to_json())
+    return (df.to_json())
 
+@app.route('/get_entities_normalized', methods=['POST'])
+def get_entities_normalized():
     
+    # ambil data dari json yang diterima endpoint
+    data = request.get_json()
+    
+    # ambil nilai teks dari data
+    text = data['text']
+    
+    # modelkan teks dengan model scipy 
+    doc = nlp(text)
+    
+    # membuat pasangan label dan nilai entitas
+    d = [(ent.label_, ent.text) for ent in doc.ents]
+
+    # transform pasangan label menjadi dataframe 
+    df = pd.DataFrame(d, columns=['category', 'value'])
+    
+    # transform dataframe menjadi list data
+    org=df.loc[df['category'] == 'ORG','value'].tolist()
+    per=df.loc[df['category'] == 'PERSON','value'].tolist()
+    gpe=df.loc[df['category'] == 'GPE','value'].tolist()
+    mone=df.loc[df['category'] == 'MONEY','value'].tolist()
+
+    # transform menjadi format json
+    a={}
+    if len(org) > 0:
+        a['ORG']=org
+    if len(per) > 0:
+        a['PERSON']=per
+    if len(gpe) > 0:
+        a['GPE']=gpe
+    if len(mone) > 0:
+        a['MONEY']=mone
+    b=json.dumps(a)
+
+    return (b)
 
 if __name__ == '__main__':
     app.run(debug=True)
